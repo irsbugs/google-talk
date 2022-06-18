@@ -1,0 +1,306 @@
+# Presentation text/control file.
+# Copy this template file to create your own slide show text/control file.
+# 
+# Google_talk_presenter.py application:
+# "google_talk_presenter.py" is a python3 application that will control an
+# Impress slide show and at the same time use google's on-line text to speech
+# conversion to provide the commentary to the slide show.
+# 
+# The "google_talk_presenter.py" application needs to be passed, via the 
+# command line, the name given to this text file. This file then provides the
+# control data for the Impress slide show to change slides, etc., and the text
+# that is to be spoken.
+#
+# This file and the Impress slide show file must reside in the same folder.
+# The user should set their console terminal default to this folder, before
+# launching "google_talk_presenter.py" from the command line. This python3 
+# application determines the path to folders using the os.getcwd() function.
+#
+# Guidelines:
+# For creating a text and command file for controlling an Impress Presentation
+# with text to speech commentary, follows these guidelines:
+#
+#   File placement:
+#   This text/control file resides in the same folder as the Impress
+#   slide show file.
+#
+#   Comment Lines:
+#   Lines begining with a # are comment lines and are ignored by the program.
+#
+#   Command Lines:
+#   Commands are in [] brackets and the left bracket is at the first position 
+#   on the line.
+#
+#   Command slide_show_file:
+#   The first command in this file is for the name of the Impress slide show.
+#   For example
+#   [slide_show_file:my_slide_show.odp]
+#   
+#   Command language:
+#   The default language is "English" set by the variable "default_language"
+#   in the python3 application.
+#
+#   To change the language insert a command line that states "language:"
+#   followed by the desired language. Subsequent text in that language will be
+#   spoken in that language. The command is not case sensitive. For examples:
+#
+#   I will say hello in French.
+#
+#   [language:french]
+#   Bonjour.
+#
+#   [language:ENGLISH]
+#   I'm back to speaking in English.
+#
+#   Command pause:
+#   The pause command will delay the submission of text to google to be 
+#   converted to speech. For example: [pause:3] will be a 3 second delay.
+#   
+#   Command slide:
+#   The command [slide:*] (where * is an integer) determines the slide to be
+#   displayed in the presentation. The slide numbers do not need to be in
+#   sequential order. A single slide might be shown multiple times throughout
+#   a presentation, but with different commentary each time.
+# 
+#   Slide numbering begins at 1. On launching the application a check is made 
+#   to ensure no slide number is less that 1 or exceeds value for the total
+#   number of slides in the presentation.
+#   
+#
+#   Text for conversion to speech:
+#   Every line containing text, that is not a command line or comment line, 
+#   will be submitted to google for conversion to speech in the currently 
+#   invoked language.
+# 
+#   A line of text that continues to the next line will be ensured to have a 
+#   space character at the end of the line so that two words are not run 
+#   together.
+#   
+#   All text must be in short paragraphs. There needs at to be least one
+#   blank line between paragraphs.
+#
+# Summary of command keywords used in the format [keyword:value]
+# [slide_show_file: ]  
+# [slide: ], [language: ], [pause: ]
+#
+# Languages supporting text to speech conversion (As of April 2017):
+# Albanian, Arabic, Armenian, Basque, Bosnian, Catalan, Chinese (Simplified),
+# Chinese (Traditional), Corsican, Croatian, Czech, Danish, Dutch, English,
+# Esperanto, Finnish, French, German, Greek, Hindi, Hungarian, Icelandic,
+# Indonesian, Italian, Japanese, Khmer, Korean, Latin, Latvian, Macedonian,
+# Nepali, Norwegian, Polish, Portuguese, Romanian, Russian, Serbian, Sinhala,
+# Slovak, Spanish, Swahili, Swedish, Tamil, Thai, Turkish, Ukrainian, 
+# Vietnamese, Welsh.
+#
+[slide_show_file:google_talk_presentation.odp]  
+     
+[language:english]
+[slide:1]
+# Insert 5 to 10 seconds of introductory music as mp3 or wav file.
+[music:entertainer.mp3]
+
+Hello and welcome to this presentation on the text to speech facility that is
+provided by Google.
+
+I am at google and I provide the English speech for people who connect to 
+google from Australia and New Zealand.
+
+My friends Lawrence and Ian put together this presentation and so long as
+the network holds up, then I'll deliver the commentary.
+
+[pause:1]
+[slide:2]
+I'd like to mention of two text to speech applications that provide this 
+service off-line. One of them is espeak. Here is a few words from espeak.
+[pause:1]
+[music:espeak_1.wav]
+[pause:1]
+[music:espeak_2.wav]
+Another off line application is pico2wave. So lets have pico say a few words. 
+[pause:1]
+[music:pico_1.wav]
+[pause:1]
+[music:pico_2.wav]
+[pause:1]
+I think you'll agree that they don't have quite the same natural sounding 
+voice that I have. 
+
+I'll now move on and talk more about myself.
+
+[slide:3]
+[pause:1]
+Google have a website called translate dot google dot com. 
+
+The left panel is where you select a language and enter text, and the right 
+panel, after selecting a language, will display the translation.
+
+At the moment the bottom left-hand corner of the left panel shows only a
+key board icon.
+# Strange pronounceation of keyboard. Try key board.
+
+Now let me type in "hello world". 
+[pause:0.5]
+Tap. Tap. Tap.
+
+[slide:4]
+[pause:1]
+
+The left hand panel now has "hello world" and the right hand panel has this
+translated into french.
+
+Notice that both panels now display an audio "speaker" icon.
+[pause:1]
+
+If you click on the English audio icon, then you get me saying "hello world".
+
+If you click on the French audio icon, then you get my french friend saying.
+[language:french]
+Bonjour le monde.
+[language:english]
+
+[slide:5]
+[pause:1]
+A url may be entered into the browser that links to googles text to speech 
+t t s web page.
+
+When the four values are passed to this page, then an html5 video widget is
+displayed on the browser. 
+
+As it plays you hear me saying, "Hello world. This is a test."
+
+[slide:6]
+[pause:1]
+There is a cross-platform application called wget. This is used to send a 
+message to google, and the mp3 file of the message to be spoken is copied
+from google to the local folder.
+[pause:1]
+
+[slide:7]
+[pause:1]
+A mp3 player is then used to provide the audio from this mp3 file. On a linux
+platform "mplayer" or "ffplay" may be used. The mp3 file is 24 kilo hertz 
+on two channels.
+
+[slide:8]
+[pause:1]
+Rather than using the wget application it is preferable to use a python3 
+module. The python3 standard library includes the Uniform Resource Locator
+library, urllib. 
+
+This a package that collects several modules for working with URLs:
+These are "request", "error", "parse" and "robotparser"
+
+[slide:9]
+[pause:1]
+The urllib request module may be used as a replacement for wget.
+
+[slide:10]
+[pause:1]
+urllib request is rather complex and we use three functions from it when making a request to google. These are Request, URLError and urlopen.
+
+[slide:11]
+[pause:1]
+This is the Urllib related code that is responsible for the conversion of each
+text message that is sent to google for conversion to speech. 
+
+The top section of code builds the request. The bottom section opens the
+connection with google and makes a request. The received mp3 response
+is piped to the mp3 player.
+
+[slide:12]
+[pause:1]
+To avoid the mp3 data being written to the temp folder and then having an
+mp3 player read the file to produce the audio, the mp3 data is "piped"
+directly to the player.
+
+For more details on urllib and piping please talk to Lawrence.
+
+[slide:13]
+[pause:1]
+So how does this slide show work?
+
+A subprocess is spawned so that a star office command is executed to invoke LibreOffice or OpenOffice to accept connections.
+
+The python3 presenter application is launched.
+
+The application reads in the file with the text and command information.
+
+The command for the name of the Impress slide show is found.
+
+The slide show is launched. Commands are used to change the slides.
+The text is sent to google for conversion to speech.
+
+[slide:14]
+[pause:1]
+This is a snippet of the file containing the commands and the text for this
+slide show.
+[pause:2]
+
+[slide:15]
+In this block diagram the magenta box in the top left hand corner is the text
+and control file. The yellow python application uses the three modules in 
+orange: urllib, subprocess and pyuno.
+
+Control commands are sent through the pyuno bridge to the libreoffice api to
+load the slide show and change slides that are displayed by the video 
+projector.
+
+Text is sent by urllib module to the google text to speech service. 
+
+The returned mp3 stream is piped by the subprocess function into an mp3 player 
+application. This audio is then amplified and fed to a speaker.
+
+[pause:1]
+[slide:16]
+An alternative to using the urllib and subprocess modules in conjunction with 
+the mp3 player application, is to use the Gstreamer module.
+
+Gee-streamer is part of the Gee-Object library. 
+
+The Gimp Tool Kit, GTK, is for providing graphical user interfaces and used 
+to also contain library's not specific to providing the graphical interface. 
+
+In 2002 with the release of GTK+ 2.0 these library's were split off into the
+Gee-Object library. 
+
+This presenter application does not have a GTK+ GUI. 
+
+It uses Gee-Streamer library from the Gee-Object repository to perform the
+interaction with google text to speech. 
+
+Gee-Streamer also provides downloading and decoding of the mp3 data to provide
+the audio.
+
+[pause:1]
+This brings my presentation to an end. 
+[pause:1]
+If you have any questions please talk to Lawrence or Ian. There is no point 
+in asking me any questions as I don't know what I'm talking about.
+[slide:17]
+
+[pause:1]
+My French friend would like to say.
+
+[language:french]
+# Thank you for attending. Goodnight.
+Merci d'etre venu. Bonsoir.
+
+[language:english]
+and my Japanese friend wishes to add.
+
+[language:japanese]
+# Thank you. Goodbye.
+ありがとう、さようなら。
+
+[language:english]
+So that's it for now. Thank you and good night from me.
+[pause:1]
+Now where did I put my saxaphone.
+Ah, there it is.
+[music:yakety_yak_solo.mp3]
+
+[slide:18]
+[pause:3]
+
+#This is the end of the presentation.
+
